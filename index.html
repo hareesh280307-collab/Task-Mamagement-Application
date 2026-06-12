@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Task Manager</title>
+  <title>Advanced Task Manager</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-  <h1>✨ Task Manager</h1>
+  <h1>📅 Task Scheduler</h1>
 
   <div class="input-box">
-    <input type="text" id="taskInput" placeholder="Enter your task...">
+    <input type="text" id="taskName" placeholder="Task Name">
+    <input type="number" id="taskDays" placeholder="Days">
+    <input type="datetime-local" id="taskTime">
     <button onclick="addTask()">➕</button>
   </div>
 
