@@ -2,26 +2,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial;
 }
 
 body {
   height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .container {
-  width: 350px;
+  width: 400px;
   padding: 20px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  background: rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
   color: white;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
 h1 {
@@ -30,49 +29,38 @@ h1 {
 
 .input-box {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
 .input-box input {
-  flex: 1;
   padding: 10px;
+  border-radius: 8px;
   border: none;
-  border-radius: 10px;
   outline: none;
 }
 
 .input-box button {
   padding: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #00c9a7;
   color: white;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.input-box button:hover {
-  background: #00a78e;
 }
 
 ul {
-  list-style: none;
   margin-top: 20px;
+  list-style: none;
 }
 
 li {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.3);
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.3s;
-}
-
-li:hover {
-  transform: scale(1.05);
+  text-align: left;
+  position: relative;
 }
 
 .completed {
@@ -81,16 +69,13 @@ li:hover {
 }
 
 .delete-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
   background: red;
   border: none;
   color: white;
-  padding: 5px 8px;
+  padding: 5px;
   border-radius: 5px;
   cursor: pointer;
-}
-
-@media (max-width: 500px) {
-  .container {
-    width: 90%;
-  }
 }
