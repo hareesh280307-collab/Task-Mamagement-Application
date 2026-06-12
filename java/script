@@ -1,96 +1,34 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+function addTask() {
+  const name = document.getElementById("taskName").value;
+  const days = document.getElementById("taskDays").value;
+  const time = document.getElementById("taskTime").value;
 
-body {
-  height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  width: 350px;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  color: white;
-  text-align: center;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-}
-
-h1 {
-  margin-bottom: 15px;
-}
-
-.input-box {
-  display: flex;
-  gap: 10px;
-}
-
-.input-box input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-}
-
-.input-box button {
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #00c9a7;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.input-box button:hover {
-  background: #00a78e;
-}
-
-ul {
-  list-style: none;
-  margin-top: 20px;
-}
-
-li {
-  background: rgba(255,255,255,0.2);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.3s;
-}
-
-li:hover {
-  transform: scale(1.05);
-}
-
-.completed {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-.delete-btn {
-  background: red;
-  border: none;
-  color: white;
-  padding: 5px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-@media (max-width: 500px) {
-  .container {
-    width: 90%;
+  if (name === "" || days === "" || time === "") {
+    alert("Please fill all fields");
+    return;
   }
+
+  const li = document.createElement("li");
+
+  li.innerHTML = `
+    <strong onclick="toggleTask(this)">${name}</strong><br>
+    📅 Days: ${days}<br>
+    ⏰ Schedule: ${new Date(time).toLocaleString()}
+    <button class="delete-btn" onclick="deleteTask(this)">❌</button>
+  `;
+
+  document.getElementById("taskList").appendChild(li);
+
+  // Clear inputs
+  document.getElementById("taskName").value = "";
+  document.getElementById("taskDays").value = "";
+  document.getElementById("taskTime").value = "";
+}
+
+function deleteTask(btn) {
+  btn.parentElement.remove();
+}
+
+function toggleTask(task) {
+  task.parentElement.classList.toggle("completed");
 }
